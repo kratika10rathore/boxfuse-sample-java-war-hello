@@ -19,4 +19,6 @@ jobs:
           java-version: 1.8
       - name: Generate the package
         run: mvn -B package --file pom.xml
+      - name: Deploy to tomcat
+        run: curl -v -u admin:admin -T /home/runner/work/boxfuse-sample-java-war-hello/boxfuse-sample-java-war-hello/target/hello-1.0.war 'http://ec2-184-72-174-66.compute-1.amazonaws.com:8080//manager/text/deploy?path=/boxfuse_app'
       
